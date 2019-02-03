@@ -2,9 +2,9 @@ import React from 'react';
 
 const Todo = ({todo}) => {
     return (
-        <div>
+        <li className="list-group-item">
             {todo.text}
-        </div>
+        </li>
     );
 };
 

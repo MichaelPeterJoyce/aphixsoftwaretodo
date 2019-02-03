@@ -1,4 +1,4 @@
-import TodoList from "../components/TodoList";
+import TodoList from "../../components/TodoList";
 import {connect} from "react-redux";
 
 const mapStateToProps = state => ({
