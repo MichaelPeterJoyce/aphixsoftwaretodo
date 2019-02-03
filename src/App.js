@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <h3>Todo List Application Demo for Aphix Software</h3>
+        <h3 className='mt-2'>Todo List Application Demo for Aphix Software</h3>
         <AddToDoItem/>
         <FilteredToDoItems />
       </div>

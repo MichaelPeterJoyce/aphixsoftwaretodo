@@ -8,6 +8,10 @@ const todos = (state = [], action) => {
                     text: action.text,
                 }
             ];
+        case 'EDIT_TODO':
+            return state.map(todo =>
+                todo.id === action.id ? todo.text = action.text : todo
+            );
         default:
             return state
     }

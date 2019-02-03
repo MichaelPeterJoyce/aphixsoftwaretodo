@@ -5,3 +5,8 @@ export const addTodo = text => ({
     id: nextId++,
     text
 });
+
+export const editTodo = text => ({
+    type: 'EDIT_TODO',
+    text
+});
