@@ -1,26 +1,47 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 
-const Todo = ({todo}) => {
-    todo.disabled = true;
-    let toggleTodoStatus = (todo) => {
-        todo.disabled = false;
+class Todo extends Component {
+    toggleTodoStatus = () => {
+       this.props.toggleTodo(this.props.todo)
     };
-    return (
-        <li className="list-group-item">
-            <span className="badge badge-primary float-left mb-2">Status: Todo</span>
-            <div className="input-group input-group-sm">
-                <div className="input-group-prepend">
-                    <span className="input-group-text" id="inputGroup-sizing-sm">Todo Text</span>
+    deleteTodoItem = () => {
+       this.props.deleteTodo(this.props.todo)
+    };
+
+    editTodo = (event) => {
+        console.log(this.props, event.target.value);
+    };
+    render() {
+        return (
+            <li className="list-group-item">
+                <span className="badge badge-primary float-left mb-2">Status: {this.props.todo.status ? 'Todo': 'Complete'}</span>
+                <div className="input-group input-group-sm">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text" id="inputGroup-sizing-sm">Todo Text</span>
+                    </div>
+                    <input type="text" className="form-control"
+                           onChange={(event)=>this.editTodo(event)}
+                           value={this.props.todo.text}
+                           aria-label="Small"
+                           aria-describedby="inputGroup-sizing-sm"
+                    />
                 </div>
-                <input type="text" className="form-control" disabled={todo.disabled} value={todo.text} aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                <div className="input-group-append">
-                    <button className="btn btn-warning" onClick={toggleTodoStatus(todo)} type="button">Edit</button>
-                </div>
-            </div>
-            <button className="mt-3 btn btn-danger btn-sm float-left" type="button">Delete</button>
-            <button className="mt-3 btn btn-success btn-sm float-right" type="button">Complete</button>
-        </li>
-    );
+                <button className="mt-3 btn btn-danger btn-sm float-left" onClick={this.deleteTodoItem} type="button">Delete</button>
+                <button className="mt-3 btn btn-success btn-sm float-right" onClick={this.toggleTodoStatus} type="button">Complete</button>
+            </li>
+        );
+    }
+};
+
+Todo.propTypes = {
+    todo: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        status: PropTypes.bool.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired,
+    deleteTodo: PropTypes.func.isRequired
 };
 
 export default Todo;
+

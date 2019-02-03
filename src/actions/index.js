@@ -1,12 +1,22 @@
-
 let nextId = 0;
 export const addTodo = text => ({
     type: 'ADD_TODO',
     id: nextId++,
-    text
+    text,
+    status: true
 });
 
-export const editTodo = text => ({
+export const editTodo = todo => ({
     type: 'EDIT_TODO',
-    text
+    todo: todo
+});
+
+export const toggleTodo = todo => ({
+    type: 'TOGGLE_TODO',
+    todo: todo
+});
+
+export const deleteTodo = todo => ({
+    type: 'DELETE_TODO',
+    id: todo.id
 });
