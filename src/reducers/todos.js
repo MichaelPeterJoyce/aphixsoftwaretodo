@@ -11,12 +11,15 @@ const todos = (state = [], action) => {
             ];
         case 'TOGGLE_TODO':
             return state.map(todo =>
-                todo.id === action.id ? { ...todo, status: !todo.status } : todo
-            )
-        case 'EDIT_TODO':
-            return state.map(todo =>
-                todo.id === action.id ? todo.text = action.text : todo
+                todo.id === action.todo.id ? {...todo, status: !todo.status} : todo
             );
+        case 'EDIT_TODO':
+            return state.map(todo => {
+                if (todo.id === action.todo.id) {
+                    todo.text = action.newText
+                }
+                return todo
+            });
         case 'DELETE_TODO':
             return state.filter(todo => todo.id !== action.id);
         default:

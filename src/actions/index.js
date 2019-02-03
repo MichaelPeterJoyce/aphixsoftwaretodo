@@ -6,9 +6,10 @@ export const addTodo = text => ({
     status: true
 });
 
-export const editTodo = todo => ({
+export const editTodo = (todo, newText) => ({
     type: 'EDIT_TODO',
-    todo: todo
+    todo: todo,
+    newText: newText
 });
 
 export const toggleTodo = todo => ({

@@ -10,12 +10,12 @@ class Todo extends Component {
     };
 
     editTodo = (event) => {
-        console.log(this.props, event.target.value);
+        this.props.editTodo(this.props.todo, event.target.value);
     };
     render() {
         return (
             <li className="list-group-item">
-                <span className="badge badge-primary float-left mb-2">Status: {this.props.todo.status ? 'Todo': 'Complete'}</span>
+                <span className={"badge float-left mb-2 " + (this.props.todo.status ? "badge-primary" : "badge-success")}>Status: {this.props.todo.status ? 'Todo': 'Complete'}</span>
                 <div className="input-group input-group-sm">
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="inputGroup-sizing-sm">Todo Text</span>
@@ -27,8 +27,8 @@ class Todo extends Component {
                            aria-describedby="inputGroup-sizing-sm"
                     />
                 </div>
-                <button className="mt-3 btn btn-danger btn-sm float-left" onClick={this.deleteTodoItem} type="button">Delete</button>
-                <button className="mt-3 btn btn-success btn-sm float-right" onClick={this.toggleTodoStatus} type="button">Complete</button>
+                <button className="mt-3 btn btn-danger btn-xs float-left" onClick={this.deleteTodoItem} type="button">Delete</button>
+                <button className="mt-3 btn btn-success btn-xs float-right" onClick={this.toggleTodoStatus} type="button">Complete</button>
             </li>
         );
     }
