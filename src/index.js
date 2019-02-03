@@ -8,12 +8,15 @@ import {Provider} from "react-redux";
 import {createStore} from "redux";
 
 import rootReducer from './reducers'
-
-const store = createStore(rootReducer);
-
+import {loadState, saveSate} from "./localStorage";
+const persistedState = loadState();
+const store = createStore(rootReducer, persistedState);
+store.subscribe(() => {
+    saveSate(store.getState());
+});
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <App/>
     </Provider>,
     document.getElementById('root')
 );

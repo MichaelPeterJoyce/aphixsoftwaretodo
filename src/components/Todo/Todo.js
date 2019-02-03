@@ -27,8 +27,8 @@ class Todo extends Component {
                            aria-describedby="inputGroup-sizing-sm"
                     />
                 </div>
-                <button className="mt-3 btn btn-danger btn-xs float-left" onClick={this.deleteTodoItem} type="button">Delete</button>
-                <button className="mt-3 btn btn-success btn-xs float-right" onClick={this.toggleTodoStatus} type="button">Complete</button>
+                <button className="mt-3 btn btn-danger btn-sm float-left" onClick={this.deleteTodoItem} type="button">Delete</button>
+                <button className="mt-3 btn btn-success btn-sm float-right" onClick={this.toggleTodoStatus} type="button">Complete</button>
             </li>
         );
     }
@@ -36,7 +36,7 @@ class Todo extends Component {
 
 Todo.propTypes = {
     todo: PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
         status: PropTypes.bool.isRequired,
         text: PropTypes.string.isRequired
     }).isRequired,
