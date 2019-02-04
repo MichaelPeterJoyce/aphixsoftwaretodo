@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ToDo Demo",
+  "name": "Aphix Software ToDo Demo",
   "icons": [
     {
       "src": "favicon.ico",
