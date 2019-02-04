@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {deleteTodo, editTodo, toggleTodo} from "../../actions";
 
 const mapStateToProps = state => ({
-    todos: state.todos
+    todos: state.todos.present
 });
 
 const mapDispatchToProps = dispatch => ({

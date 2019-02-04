@@ -26,9 +26,11 @@ class Todo extends Component {
                            aria-label="Small"
                            aria-describedby="inputGroup-sizing-sm"
                     />
+                    <div className="input-group-append">
+                        <button className="btn btn-danger btn-sm" onClick={this.deleteTodoItem} type="button">X</button>
+                    </div>
                 </div>
-                <button className="mt-3 btn btn-danger btn-sm float-left" onClick={this.deleteTodoItem} type="button">Delete</button>
-                <button className="mt-3 btn btn-success btn-sm float-right" onClick={this.toggleTodoStatus} type="button">Complete</button>
+                <button className="mt-3 btn btn-success btn-sm float-right" onClick={this.toggleTodoStatus} type="button">Toggle</button>
             </li>
         );
     }

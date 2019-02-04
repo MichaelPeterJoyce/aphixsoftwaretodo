@@ -9,11 +9,22 @@ import {createStore} from "redux";
 
 import rootReducer from './reducers'
 import {loadState, saveSate} from "./localStorage";
+// import the library
+import {library} from '@fortawesome/fontawesome-svg-core';
+
+// import your icons
+import {faUndo, faRedo} from '@fortawesome/free-solid-svg-icons';
+
 const persistedState = loadState();
 const store = createStore(rootReducer, persistedState);
 store.subscribe(() => {
     saveSate(store.getState());
 });
+
+library.add(
+    faUndo,
+    faRedo
+);
 ReactDOM.render(
     <Provider store={store}>
         <App/>
