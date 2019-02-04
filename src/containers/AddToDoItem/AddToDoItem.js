@@ -16,8 +16,10 @@ const AddToDoItem = ({dispatch}) => {
     return (
         <div className={'AddToDoItem'}>
             <form
+                className='form-group col-6'
                 onSubmit={e => AddToDoItem(e)}>
-                <input ref={node => (input = node)}/>
+                <label>Todo Item</label>
+                <input className='form-control' ref={node => (input = node)}/>
                 <br />
                 <button className='btn  btn-sm btn-primary mt-2' type="submit">Add Todo</button>
             </form>

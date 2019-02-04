@@ -8,6 +8,7 @@ class App extends Component {
         return (
             <div className='background-body'>
                 <div className="App container">
+                    <img alt='logo' src={require('./assets/img/logo.png')} className='img-fluid'/>
                     <h3>Todo List Application Demo for Aphix Software</h3>
                     <AddToDoItem/>
                     <Undo/>
